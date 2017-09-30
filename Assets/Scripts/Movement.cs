@@ -30,7 +30,7 @@ public class Movement : MonoBehaviour
         isGrounded = Physics2D.Linecast(myTrans.position, tagGround.position, playerMask);
 
         tagGround.transform.SetPositionAndRotation(transform.position, transform.rotation);
-        tagGround.Translate(0f, -0.6f, 0f, Space.Self);
+        tagGround.Translate(0f, -1f, 0f, Space.Self);
 
 #if !UNITY_ANDROID && !UNITY_IPHONE && !UNITY_BLACKBERRY && !UNITY_WINRT || UNITY_EDITOR
         Move(Input.GetAxisRaw("Horizontal"));
