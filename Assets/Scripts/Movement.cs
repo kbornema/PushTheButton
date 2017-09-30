@@ -5,7 +5,6 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
 
-    public Transform planet;
     public float speed = 10, jumpVelocity = 10;
     public LayerMask playerMask;
     public bool canMoveInAir = true;
@@ -28,17 +27,10 @@ public class Movement : MonoBehaviour
     void FixedUpdate()
     {
 
-        transform.up = transform.position - planet.position;
-        tagGround.transform.SetPositionAndRotation(transform.position, transform.rotation);
-        tagGround.Translate(0f, -0.3f, 0f, Space.Self);
-
         isGrounded = Physics2D.Linecast(myTrans.position, tagGround.position, playerMask);
 
-
-        myBody.AddForce(transform.up * -20f);
-
-        
-
+        tagGround.transform.SetPositionAndRotation(transform.position, transform.rotation);
+        tagGround.Translate(0f, -0.6f, 0f, Space.Self);
 
 #if !UNITY_ANDROID && !UNITY_IPHONE && !UNITY_BLACKBERRY && !UNITY_WINRT || UNITY_EDITOR
         Move(Input.GetAxisRaw("Horizontal"));
