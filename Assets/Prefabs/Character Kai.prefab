@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 61846548573807708}
   m_Layer: 0
   m_Name: Character Kai
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -492,7 +492,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 1243879865566982}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 8f1379b9323d4144e8113195f80be67f, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -507,7 +507,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1243879865566982}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 8f1379b9323d4144e8113195f80be67f, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -588,8 +588,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a978221d555e0074686e2a1d632a5175, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 24
-  jumpVelocity: 500
+  speed: 36
+  jumpVelocity: 800
   playerMask:
     serializedVersion: 2
     m_Bits: 256

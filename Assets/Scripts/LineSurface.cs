@@ -17,6 +17,9 @@ public class LineSurface : MonoBehaviour
     [SerializeField]
     private bool _updatePositions;
 
+    [SerializeField]
+    private Transform _pointRoot;
+
     private int _count = 0;
 
     private void Reset()
@@ -42,11 +45,11 @@ public class LineSurface : MonoBehaviour
     {
         if(_lineRenderer)
         {
-            if (transform.childCount != _lineRenderer.positionCount)
-                _lineRenderer.positionCount = transform.childCount;
+            if (_pointRoot.childCount != _lineRenderer.positionCount)
+                _lineRenderer.positionCount = _pointRoot.childCount;
 
-            for (int i = 0; i < transform.childCount; i++)
-                _lineRenderer.SetPosition(i, transform.GetChild(transform.childCount - 1 - i).localPosition);
+            for (int i = 0; i < _pointRoot.childCount; i++)
+                _lineRenderer.SetPosition(i, _pointRoot.GetChild(_pointRoot.childCount - 1 - i).localPosition);
         }
     }
 
@@ -68,12 +71,12 @@ public class LineSurface : MonoBehaviour
 
     private void SetLoppedCollider()
     {
-        Vector2[] path = new Vector2[transform.childCount];
+        Vector2[] path = new Vector2[_pointRoot.childCount];
 
-        for (int i = 0; i < transform.childCount; i++)
+        for (int i = 0; i < _pointRoot.childCount; i++)
         {
             int curId = i;
-            Vector2 curPos = transform.GetChild(curId).localPosition;
+            Vector2 curPos = _pointRoot.GetChild(curId).localPosition;
             path[i] = curPos;
         }
 
