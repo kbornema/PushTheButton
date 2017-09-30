@@ -13,6 +13,7 @@ public class Movement : MonoBehaviour
     Rigidbody2D myBody;
     BoxCollider2D myCollider;
 
+    bool willJump = false;
     bool isGrounded = false;
     float hInput = 0;
 
@@ -29,6 +30,11 @@ public class Movement : MonoBehaviour
         tagGround = GameObject.Find(this.name + "/tag_ground").transform;
     }
 
+    void Update()
+    {
+        if (Input.GetButtonDown("Jump"))
+            willJump = true;
+    }
 
     void FixedUpdate()
     {
@@ -36,14 +42,17 @@ public class Movement : MonoBehaviour
         isGrounded = Physics2D.Linecast(myTrans.position, tagGround.position, playerMask);
 
         tagGround.transform.SetPositionAndRotation(transform.position, transform.rotation);
-        tagGround.Translate(0f, -1f, 0f, Space.Self);
+        tagGround.Translate(0f, -0.5f, 0f, Space.Self);
 
         float moveAxis = Input.GetAxisRaw("Horizontal");
 
         Move(moveAxis);
 
-        if (Input.GetButtonDown("Jump"))
+        if (willJump)
+        {
             Jump();
+            willJump = false;
+        }
 
         if(Input.GetKeyDown(KeyCode.P))
         {
