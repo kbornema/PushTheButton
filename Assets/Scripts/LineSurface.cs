@@ -54,16 +54,29 @@ public class LineSurface : MonoBehaviour
     {
         if (_collider)
         {
-            Vector2[] path = new Vector2[transform.childCount];
-
-            for (int i = 0; i < transform.childCount; i++)
-            {
-                int curId = i;
-                Vector2 curPos = transform.GetChild(curId).localPosition;
-                path[i] = curPos;
-            }
-
-            _collider.SetPath(0, path);
+            if (_lineRenderer.loop)
+                SetLoppedCollider();
         }
+    }
+
+
+    private int GetOpposideId(int id, int totalCount)
+    {
+        int test = totalCount - 1 - id;
+        return test;
+    }
+
+    private void SetLoppedCollider()
+    {
+        Vector2[] path = new Vector2[transform.childCount];
+
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            int curId = i;
+            Vector2 curPos = transform.GetChild(curId).localPosition;
+            path[i] = curPos;
+        }
+
+        _collider.SetPath(0, path);
     }
 }

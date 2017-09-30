@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,14 +16,19 @@ public class Movement : MonoBehaviour
     bool isGrounded = false;
     float hInput = 0;
 
+    private Vector2 _lastCheckpointPos;
+
     void Start()
     {
+        _lastCheckpointPos = transform.position;
+
         //  myBody = this.rigidbody2D;//Unity 4.6-
         myBody = this.GetComponent<Rigidbody2D>();//Unity 5+
         myCollider = this.GetComponent<BoxCollider2D>();
         myTrans = this.transform;
         tagGround = GameObject.Find(this.name + "/tag_ground").transform;
     }
+
 
     void FixedUpdate()
     {
@@ -33,32 +38,54 @@ public class Movement : MonoBehaviour
         tagGround.transform.SetPositionAndRotation(transform.position, transform.rotation);
         tagGround.Translate(0f, -1f, 0f, Space.Self);
 
-#if !UNITY_ANDROID && !UNITY_IPHONE && !UNITY_BLACKBERRY && !UNITY_WINRT || UNITY_EDITOR
-        Move(Input.GetAxisRaw("Horizontal"));
+        float moveAxis = Input.GetAxisRaw("Horizontal");
+
+        Move(moveAxis);
+
         if (Input.GetButtonDown("Jump"))
             Jump();
-#else
-            Move (hInput);
-#endif
 
+        if(Input.GetKeyDown(KeyCode.P))
+        {
+            Respawn();
+        }
     }
 
     void Move(float horizonalInput)
     {
         if (!canMoveInAir && !isGrounded)
             return;
+
         myBody.AddForce(transform.right * horizonalInput * speed);
         robot.SpeedPercent = transform.InverseTransformDirection(myBody.velocity).x / speed * 5;
+
+        if (horizonalInput != 0.0f)
+        {
+            Vector3 scale = gameObject.transform.localScale;
+
+            scale.x = Mathf.Sign(horizonalInput) * Mathf.Abs(scale.x);
+            gameObject.transform.localScale = scale;
+        }
     }
 
     public void Jump()
     {
         if (isGrounded)
-            myBody.AddForce(transform.up*jumpVelocity);
+            myBody.AddForce(transform.up * jumpVelocity);
     }
 
     public void StartMoving(float horizonalInput)
     {
         hInput = horizonalInput;
+    }
+
+    public void Respawn()
+    {
+        transform.position = _lastCheckpointPos;
+    }
+
+    public void SetCheckpointPos(Vector3 vector3)
+    {
+        _lastCheckpointPos = vector3;
     }
 }

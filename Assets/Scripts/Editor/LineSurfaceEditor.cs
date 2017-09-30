@@ -5,8 +5,7 @@ using UnityEngine;
 
 [CustomEditor(typeof(LineSurface))]
 public class LineSurfaceEditor : Editor
-{
-
+{   
     public override void OnInspectorGUI()
     {
         base.OnInspectorGUI();
