@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 00a8b96353b3a264eb72b361e0a1de36
-timeCreated: 1506732520
+timeCreated: 1506783020
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -59,7 +59,7 @@ TextureImporter:
   - buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -67,7 +67,7 @@ TextureImporter:
   - buildTarget: Standalone
     maxTextureSize: 2048
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -79,12 +79,12 @@ TextureImporter:
       name: antenna_0
       rect:
         serializedVersion: 2
-        x: 421
+        x: 401
         y: 671
         width: 61
         height: 184
       alignment: 9
-      pivot: {x: 0.53, y: 0.15}
+      pivot: {x: 0.5, y: 0.1374953}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

@@ -1,9 +1,10 @@
 fileFormatVersion: 2
-guid: 957d22887348cf24e8d9559707eb8e6e
-timeCreated: 1506732176
+guid: 83ff91bf3f2b94e4bbeba1697b028984
+timeCreated: 1506783441
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: platform_0
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -39,9 +40,9 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
@@ -73,10 +74,24 @@ TextureImporter:
     overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: platform_0
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 80
+        width: 356
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 16, y: 16, z: 16, w: 16}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
     outline: []
     physicsShape: []
-  spritePackingTag: 
+  spritePackingTag: a
   userData: 
   assetBundleName: 
   assetBundleVariant: 
