@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CreateHole : MonoBehaviour {
+public class CreateHole : Triggerable {
 
 	// Use this for initialization
 	void Start () {
@@ -13,4 +13,6 @@ public class CreateHole : MonoBehaviour {
 	void Update () {
 		
 	}
+
+
 }
