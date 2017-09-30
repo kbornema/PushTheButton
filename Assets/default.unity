@@ -158,12 +158,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 940f4466313d4dd4a80cf4f8c99cf4ca, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bbc6944013b641b4d8221e2255ea7bbc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.16, y: 0.16}
+  m_Size: {x: 20.48, y: 20.48}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -449,7 +449,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3c7d3c4849965e0498d0748ca860f4e7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 957d22887348cf24e8d9559707eb8e6e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -529,6 +529,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a978221d555e0074686e2a1d632a5175, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  planet: {fileID: 940572027}
   speed: 3
   jumpVelocity: 4
   playerMask:
