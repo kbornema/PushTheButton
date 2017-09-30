@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Movement : MonoBehaviour {
+public class Movement : MonoBehaviour
+{
 
     public Transform planet;
     public float speed = 10, jumpVelocity = 10;
@@ -10,6 +11,8 @@ public class Movement : MonoBehaviour {
     public bool canMoveInAir = true;
     Transform myTrans, tagGround;
     Rigidbody2D myBody;
+    BoxCollider2D myCollider;
+
     bool isGrounded = false;
     float hInput = 0;
 
@@ -17,6 +20,7 @@ public class Movement : MonoBehaviour {
     {
         //  myBody = this.rigidbody2D;//Unity 4.6-
         myBody = this.GetComponent<Rigidbody2D>();//Unity 5+
+        myCollider = this.GetComponent<BoxCollider2D>();
         myTrans = this.transform;
         tagGround = GameObject.Find(this.name + "/tag_ground").transform;
     }
@@ -24,20 +28,25 @@ public class Movement : MonoBehaviour {
     void FixedUpdate()
     {
 
+        transform.up = transform.position - planet.position;
+        tagGround.transform.SetPositionAndRotation(transform.position, transform.rotation);
+        tagGround.Translate(0f, -0.3f, 0f, Space.Self);
+
         isGrounded = Physics2D.Linecast(myTrans.position, tagGround.position, playerMask);
 
-            Vector3 toTarget = transform.position - planet.position;
-            float angle = Mathf.Atan2(toTarget.y, toTarget.x);
-            transform.rotation = Quaternion.Euler(0, 0, angle * Mathf.Rad2Deg + 90);
+
+        myBody.AddForce(transform.up * -20f);
+
+        
 
 
-        #if !UNITY_ANDROID && !UNITY_IPHONE && !UNITY_BLACKBERRY && !UNITY_WINRT || UNITY_EDITOR
-            Move(Input.GetAxisRaw("Horizontal"));
-            if (Input.GetButtonDown("Jump"))
-                Jump();
-        #else
+#if !UNITY_ANDROID && !UNITY_IPHONE && !UNITY_BLACKBERRY && !UNITY_WINRT || UNITY_EDITOR
+        Move(Input.GetAxisRaw("Horizontal"));
+        if (Input.GetButtonDown("Jump"))
+            Jump();
+#else
             Move (hInput);
-        #endif
+#endif
 
     }
 
@@ -45,16 +54,13 @@ public class Movement : MonoBehaviour {
     {
         if (!canMoveInAir && !isGrounded)
             return;
-
-        Vector2 moveVel = myBody.velocity;
-        moveVel.x = horizonalInput * speed;
-        myBody.velocity = moveVel;
+        myBody.AddForce(transform.right * horizonalInput * speed);
     }
 
     public void Jump()
     {
         if (isGrounded)
-            myBody.velocity += jumpVelocity * Vector2.up;
+            myBody.AddForce(transform.up*jumpVelocity);
     }
 
     public void StartMoving(float horizonalInput)
