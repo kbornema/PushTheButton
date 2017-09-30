@@ -8,6 +8,7 @@ public class Movement : MonoBehaviour
     public float speed = 10, jumpVelocity = 10;
     public LayerMask playerMask;
     public bool canMoveInAir = true;
+    public RobotAnimation robot;
     Transform myTrans, tagGround;
     Rigidbody2D myBody;
     BoxCollider2D myCollider;
@@ -47,6 +48,7 @@ public class Movement : MonoBehaviour
         if (!canMoveInAir && !isGrounded)
             return;
         myBody.AddForce(transform.right * horizonalInput * speed);
+        robot.SpeedPercent = transform.InverseTransformDirection(myBody.velocity).x / speed * 5;
     }
 
     public void Jump()
