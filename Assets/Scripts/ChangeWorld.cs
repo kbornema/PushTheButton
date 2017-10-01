@@ -5,11 +5,12 @@ using UnityEngine;
 public class ChangeWorld : MonoBehaviour 
 {
     [SerializeField]
-    private Transform _newPoints
-    ;
+    private Transform _newPoints;
 
     [SerializeField]
     private LineSurface _planetSurface;
+    [SerializeField]
+    private LineSurface _planetSurface01;
 
     [SerializeField]
     private ProcPointMesh _insidePlanet;
@@ -19,6 +20,13 @@ public class ChangeWorld : MonoBehaviour
         _planetSurface.PointRoot = _newPoints;
         _planetSurface.ApplyPositions();
         _planetSurface.ApplyToCollider();
+
+        if (_planetSurface01)
+        {
+            _planetSurface01.PointRoot = _newPoints;
+            _planetSurface01.ApplyPositions();
+            _planetSurface01.ApplyToCollider();
+        }
 
         if(_insidePlanet)
         {

@@ -51,10 +51,10 @@ public class Movement : MonoBehaviour
             willJump = false;
         }
 
-        if(Input.GetKeyDown(KeyCode.P))
-        {
-            Respawn();
-        }
+        //if(Input.GetKeyDown(KeyCode.P))
+        //{
+        //    Respawn();
+        //}
     }
 
     void Move(float horizonalInput)
@@ -91,7 +91,8 @@ public class Movement : MonoBehaviour
 
     public void Respawn()
     {
-        transform.position = lastCheckpoint.transform.position;
+        if(lastCheckpoint)
+            transform.position = lastCheckpoint.transform.position;
     }
 
 }

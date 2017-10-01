@@ -804,6 +804,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9936354e0e902db4db3e15e3dd6f908f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _offsetTransform: {fileID: 0}
   animCurve:
     serializedVersion: 2
     m_Curve: []
@@ -814,6 +815,7 @@ MonoBehaviour:
   rotation: 0
   animLength: 1
   triggered: 0
+  offsetPercent: 1
 --- !u!1 &227093464
 GameObject:
   m_ObjectHideFlags: 0
@@ -1069,6 +1071,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9936354e0e902db4db3e15e3dd6f908f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _offsetTransform: {fileID: 0}
   animCurve:
     serializedVersion: 2
     m_Curve:
@@ -1091,6 +1094,7 @@ MonoBehaviour:
   rotation: 0
   animLength: 4
   triggered: 0
+  offsetPercent: 1
 --- !u!1001 &299492858
 Prefab:
   m_ObjectHideFlags: 0
@@ -1272,6 +1276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9936354e0e902db4db3e15e3dd6f908f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _offsetTransform: {fileID: 0}
   animCurve:
     serializedVersion: 2
     m_Curve:
@@ -1294,6 +1299,7 @@ MonoBehaviour:
   rotation: 0
   animLength: 1.8
   triggered: 0
+  offsetPercent: 1
 --- !u!60 &377699170
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1548,6 +1554,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9936354e0e902db4db3e15e3dd6f908f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _offsetTransform: {fileID: 0}
   animCurve:
     serializedVersion: 2
     m_Curve:
@@ -1570,6 +1577,7 @@ MonoBehaviour:
   rotation: 0
   animLength: 5
   triggered: 0
+  offsetPercent: 1
 --- !u!1 &383782559
 GameObject:
   m_ObjectHideFlags: 0
@@ -1898,6 +1906,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9936354e0e902db4db3e15e3dd6f908f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _offsetTransform: {fileID: 0}
   animCurve:
     serializedVersion: 2
     m_Curve:
@@ -1920,6 +1929,7 @@ MonoBehaviour:
   rotation: 0
   animLength: 1
   triggered: 0
+  offsetPercent: 1
 --- !u!60 &491685375
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -2207,6 +2217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9936354e0e902db4db3e15e3dd6f908f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _offsetTransform: {fileID: 0}
   animCurve:
     serializedVersion: 2
     m_Curve:
@@ -2229,6 +2240,7 @@ MonoBehaviour:
   rotation: 0
   animLength: 3
   triggered: 0
+  offsetPercent: 1
 --- !u!60 &603615436
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -2460,6 +2472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9936354e0e902db4db3e15e3dd6f908f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _offsetTransform: {fileID: 0}
   animCurve:
     serializedVersion: 2
     m_Curve:
@@ -2482,6 +2495,7 @@ MonoBehaviour:
   rotation: 0
   animLength: 4
   triggered: 0
+  offsetPercent: 1
 --- !u!60 &684167660
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -3326,6 +3340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9936354e0e902db4db3e15e3dd6f908f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _offsetTransform: {fileID: 0}
   animCurve:
     serializedVersion: 2
     m_Curve:
@@ -3348,6 +3363,7 @@ MonoBehaviour:
   rotation: -400
   animLength: 4
   triggered: 0
+  offsetPercent: 1
 --- !u!1 &956342852
 GameObject:
   m_ObjectHideFlags: 0
@@ -3928,6 +3944,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9936354e0e902db4db3e15e3dd6f908f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _offsetTransform: {fileID: 0}
   animCurve:
     serializedVersion: 2
     m_Curve:
@@ -3950,6 +3967,7 @@ MonoBehaviour:
   rotation: -320
   animLength: 2
   triggered: 0
+  offsetPercent: 1
 --- !u!1 &1072186552
 GameObject:
   m_ObjectHideFlags: 0
@@ -4303,51 +4321,6 @@ Prefab:
       propertyPath: planet
       value: 
       objectReference: {fileID: 111495251}
-    - target: {fileID: 212756877904330174, guid: 5c2ee7329892e0e46891fbf028a5258a,
-        type: 2}
-      propertyPath: m_SortingOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 212872007017953164, guid: 5c2ee7329892e0e46891fbf028a5258a,
-        type: 2}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 212378696278672826, guid: 5c2ee7329892e0e46891fbf028a5258a,
-        type: 2}
-      propertyPath: m_SortingOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 212514594522948610, guid: 5c2ee7329892e0e46891fbf028a5258a,
-        type: 2}
-      propertyPath: m_SortingOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 212811062307151502, guid: 5c2ee7329892e0e46891fbf028a5258a,
-        type: 2}
-      propertyPath: m_SortingOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 212207521538190958, guid: 5c2ee7329892e0e46891fbf028a5258a,
-        type: 2}
-      propertyPath: m_SortingOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 212185844064630626, guid: 5c2ee7329892e0e46891fbf028a5258a,
-        type: 2}
-      propertyPath: m_SortingOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 212732746661904310, guid: 5c2ee7329892e0e46891fbf028a5258a,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114947143420792116, guid: 5c2ee7329892e0e46891fbf028a5258a,
-        type: 2}
-      propertyPath: source
-      value: 
-      objectReference: {fileID: 1899238198}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5c2ee7329892e0e46891fbf028a5258a, type: 2}
   m_IsPrefabParent: 0
@@ -5299,6 +5272,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9936354e0e902db4db3e15e3dd6f908f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _offsetTransform: {fileID: 0}
   animCurve:
     serializedVersion: 2
     m_Curve:
@@ -5321,6 +5295,7 @@ MonoBehaviour:
   rotation: 720
   animLength: 5
   triggered: 0
+  offsetPercent: 1
 --- !u!1 &1355733837
 GameObject:
   m_ObjectHideFlags: 0
@@ -5498,6 +5473,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9936354e0e902db4db3e15e3dd6f908f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _offsetTransform: {fileID: 0}
   animCurve:
     serializedVersion: 2
     m_Curve:
@@ -5520,6 +5496,7 @@ MonoBehaviour:
   rotation: 0
   animLength: 2
   triggered: 0
+  offsetPercent: 1
 --- !u!1 &1414904193
 GameObject:
   m_ObjectHideFlags: 0
@@ -5781,6 +5758,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9936354e0e902db4db3e15e3dd6f908f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _offsetTransform: {fileID: 0}
   animCurve:
     serializedVersion: 2
     m_Curve:
@@ -5803,6 +5781,7 @@ MonoBehaviour:
   rotation: 0
   animLength: 1.6
   triggered: 0
+  offsetPercent: 1
 --- !u!1 &1447831262
 GameObject:
   m_ObjectHideFlags: 0
@@ -6434,8 +6413,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1036792c033fdb44bb9e38c18047e67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _points: {fileID: 1501510562}
+  _newPoints: {fileID: 0}
   _planetSurface: {fileID: 1466526669}
+  _planetSurface01: {fileID: 0}
   _insidePlanet: {fileID: 0}
 --- !u!4 &1501510564
 Transform:
@@ -8049,97 +8029,12 @@ Transform:
   m_Father: {fileID: 956342853}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1899238191 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1243879865566982, guid: 5c2ee7329892e0e46891fbf028a5258a,
-    type: 2}
-  m_PrefabInternal: {fileID: 1135274969}
 --- !u!114 &1899238194 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114947143420792116, guid: 5c2ee7329892e0e46891fbf028a5258a,
     type: 2}
   m_PrefabInternal: {fileID: 1135274969}
   m_Script: {fileID: 11500000, guid: a978221d555e0074686e2a1d632a5175, type: 3}
---- !u!82 &1899238198
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1899238191}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: dc8d3e6f9b1138b479bc4be9e52cdc6b, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
 --- !u!1 &1916244494
 GameObject:
   m_ObjectHideFlags: 0

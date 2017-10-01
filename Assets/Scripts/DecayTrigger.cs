@@ -44,6 +44,8 @@ public class DecayTrigger : Triggerable
     [Header("Other")]
     [SerializeField]
     private List<Bla> _objectsToActivate;
+    [SerializeField]
+    private ParticleSystem _rain;
 
 
     private Color _hideColor = new Color(1.0f, 1.0f, 1.0f, 0.0f);
@@ -69,8 +71,8 @@ public class DecayTrigger : Triggerable
         if(!CanTrigger)
             _curTriggerCooldown -= Time.deltaTime;
 
-        if (Input.GetKeyDown(KeyCode.L))
-            Trigger();
+        //if (Input.GetKeyDown(KeyCode.L))
+        //    Trigger();
     }
 
     public override void Trigger()
@@ -90,6 +92,7 @@ public class DecayTrigger : Triggerable
 
             else if (_triggerCount == 2){
                 FadeBetweenSurfaces(_hideColor, Color.white, _changeTime);
+                _firstChange.Apply();
             }
 
             else if (_triggerCount == 3)
@@ -97,8 +100,14 @@ public class DecayTrigger : Triggerable
 
             else if (_triggerCount == 4)
             {
+                //_rain
                 //_objectToHide.SetActive(false);
                 //_changeWorld.Apply();
+            }
+
+            else if(_triggerCount == 5)
+            {
+                _secondChange.Apply();
             }
 
             for (int i = 0; i < _objectsToActivate.Count; i++)
@@ -107,6 +116,7 @@ public class DecayTrigger : Triggerable
                     _objectsToActivate[i].obj.SetActive(_objectsToActivate[i].value);
             }
 
+            //Debug.Log(_triggerCount);
             _triggerCount++;
         }
     }
