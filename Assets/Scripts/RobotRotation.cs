@@ -13,6 +13,6 @@ public class RobotRotation : MonoBehaviour
 	// Update is called once per frame
 	private void Update () 
     {
-        transform.Rotate(0.0f, 0.0f, _maxRotationSpeed * _robotAnimation.SpeedPercent * Time.deltaTime, Space.Self);
+        transform.Rotate(0.0f, 0.0f, _maxRotationSpeed * _robotAnimation.SpeedPercent * Time.deltaTime * _robotAnimation.FlipScale, Space.Self);
 	}
 }

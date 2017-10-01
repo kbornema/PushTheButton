@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -21,9 +21,13 @@ public class Gravity : MonoBehaviour {
 	void FixedUpdate () {
 
         normal = transform.position - planet.position;
-
+        
         if (alwaysStandingUp)
-            transform.up = normal;
+        {
+            float angle = Mathf.Atan2(normal.y, normal.x) * Mathf.Rad2Deg;
+            transform.localRotation = Quaternion.Euler(0.0f, 0.0f, angle - 90.0f);
+        }
+            
 
         myBody.AddForce(normal * -gravity);
 

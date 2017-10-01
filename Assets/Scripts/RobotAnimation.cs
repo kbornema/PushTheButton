@@ -14,8 +14,10 @@ public class RobotAnimation : MonoBehaviour
     [SerializeField]
     private Transform _root;
 
+    public float FlipScale { get { return Mathf.Sign(_root.localScale.x); } }
+
     private void Update()
     {
-        transform.localRotation = Quaternion.Euler(0.0f, 0.0f, _maxMoveTiltDegree * _speedPercent * Mathf.Sign(_root.localScale.x));
+        transform.localRotation = Quaternion.Euler(0.0f, 0.0f, _maxMoveTiltDegree * _speedPercent * FlipScale);
     }
 }
