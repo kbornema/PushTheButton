@@ -28,6 +28,11 @@ public class LineSurface : MonoBehaviour
         _lineRenderer = GetComponent<LineRenderer>();
     }
 
+    private void Awake()
+    {
+        ApplyToCollider();
+    }
+
     private void Update()
     {   
         if (Application.isEditor && !Application.isPlaying && _updatePositions)
