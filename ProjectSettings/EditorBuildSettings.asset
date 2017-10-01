@@ -4,4 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/default Victor 2.unity
+    guid: dc05a027934360d41818dd952f3e6252
+  - enabled: 1
+    path: Assets/default Kai.unity
+    guid: b673cc9870cf59e4996a5f0a71e87ca5
