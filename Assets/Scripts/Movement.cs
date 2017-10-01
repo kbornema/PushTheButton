@@ -13,6 +13,7 @@ public class Movement : MonoBehaviour
     Rigidbody2D myBody;
     BoxCollider2D myCollider;
     public Transform lastCheckpoint;
+    public AudioSource source;
 
     bool willJump = false;
     bool isGrounded = false;
@@ -77,7 +78,11 @@ public class Movement : MonoBehaviour
     public void Jump()
     {
         if (isGrounded)
+        {
+            source.Play();
             myBody.AddForce(transform.up * jumpVelocity);
+        }
+            
     }
 
     public void StartMoving(float horizonalInput)
