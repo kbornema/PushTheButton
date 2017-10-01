@@ -26,6 +26,6 @@ public class OffsetMaterial : MonoBehaviour {
 
         float value = Mathf.Sin(_time);
 
-        _mat.mainTextureOffset = new Vector2(value, 0.0f);
+        _mat.mainTextureOffset = new Vector2(value * _amount, 0.0f);
 	}
 }

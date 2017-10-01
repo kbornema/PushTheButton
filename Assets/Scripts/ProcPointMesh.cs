@@ -26,7 +26,6 @@ public class ProcPointMesh : MonoBehaviour
 
     public void GenerateMesh()
     {
-        List<Vector2> points = new List<Vector2>();
         Vector2[] inputVertices = new Vector2[_pointRoot.childCount];
 
         for (int i = 0; i < _pointRoot.childCount; i++)
