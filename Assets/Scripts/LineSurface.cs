@@ -88,4 +88,36 @@ public class LineSurface : MonoBehaviour
 
         _collider.SetPath(0, path);
     }
+
+    public void StartFadeColor(Color c, float t)
+    {
+        if (!gameObject.activeSelf)
+            gameObject.SetActive(true);
+
+        StartCoroutine(FadeColorRoutine(c, t));
+    }
+
+    private IEnumerator FadeColorRoutine(Color c, float time)
+    {
+        Color startColor = _lineRenderer.material.color;
+        float cur = 0.0f;
+
+        while (cur < time)
+        {
+            float t = cur / time;
+            cur += Time.deltaTime;
+            SetColor(Color.Lerp(startColor, c, t));
+            yield return new WaitForEndOfFrame();
+        }
+
+        SetColor(c);
+
+        if(c.a <= 0.0f && gameObject.activeSelf)
+            gameObject.SetActive(false);
+    }
+
+    public void SetColor(Color c)
+    {
+        _lineRenderer.material.color = c;
+    }
 }
