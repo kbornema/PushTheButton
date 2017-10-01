@@ -90,7 +90,6 @@ public class DecayTrigger : Triggerable
 
             else if (_triggerCount == 2){
                 FadeBetweenSurfaces(_hideColor, Color.white, _changeTime);
-                
             }
 
             else if (_triggerCount == 3)

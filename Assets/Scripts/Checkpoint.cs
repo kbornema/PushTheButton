@@ -7,7 +7,7 @@ public class Checkpoint : MonoBehaviour
 
     private void Start()
     {
-        CheckpointManager.instance.RegisterCheckpoint(this);
+       // CheckpointManager.instance.RegisterCheckpoint(this);
     }
 
     void OnTriggerEnter2D(Collider2D coll)

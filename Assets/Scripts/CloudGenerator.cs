@@ -42,8 +42,6 @@ public class CloudGenerator : Triggerable
             cloud.SetCenter(transform);
 
             instance.transform.SetParent(transform);
-
-            
         }
     }
 
@@ -67,11 +65,8 @@ public class CloudGenerator : Triggerable
         while(curTime < time)
         {
             float t = curTime / time;
-
             Color curColor = Color.Lerp(startColor, newColor, t);
-
             ApplyColorToAllClouds(curColor);
-
             curTime += Time.deltaTime;
 
             yield return new WaitForEndOfFrame();

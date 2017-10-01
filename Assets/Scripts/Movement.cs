@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
-{
-
+{   
     public float speed = 10, jumpVelocity = 10;
     public LayerMask playerMask;
     public bool canMoveInAir = true;
