@@ -24,27 +24,45 @@ public class DecayTrigger : Triggerable
     private LineSurface _defaultSurface;
     [SerializeField]
     private LineSurface _otherSurface;
+    [SerializeField]
+    private bool _hideOtherSurface;
+
+    [Header("Trees")]
+    [SerializeField]
+    private TreeManager _trees;
+    [SerializeField]
+    private bool _toDry;
 
     private Color _hideColor = new Color(1.0f, 1.0f, 1.0f, 0.0f);
 
+    private int _triggerCount;
 
     private void Start()
     {
-        if (_otherSurface.gameObject.activeSelf)
+        if (_otherSurface.gameObject.activeSelf && _hideOtherSurface)
+        {
             _otherSurface.gameObject.SetActive(false);
+            _otherSurface.SetColor(_hideColor);
+        }
 
-        _otherSurface.SetColor(_hideColor);
     }
 
     public override void Trigger()
-    {   
-        if(_camBackground != _cam.backgroundColor)
+    {
+        
+        if(_triggerCount == 0)
+            _cloudGenerator.ColorClouds(_cloudColor, _changeTime);
+
+        else if(_triggerCount == 1)
+            _trees.ChangeTrees(_changeTime, _toDry);
+
+        else if (_triggerCount == 2 &&_camBackground != _cam.backgroundColor)
             StartCoroutine(ColorCam(_changeTime, _camBackground));
             
-        if (!_otherSurface.gameObject.activeSelf)
+        else if (_triggerCount == 3 && !_otherSurface.gameObject.activeSelf)
             FadeBetweenSurfaces(_hideColor, Color.white, _changeTime);
-  
-        _cloudGenerator.ColorClouds(_cloudColor, _changeTime);
+
+        _triggerCount++;
     }
 
     private IEnumerator ColorCam(float time, Color color)
