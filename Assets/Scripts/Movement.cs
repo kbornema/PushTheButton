@@ -12,6 +12,7 @@ public class Movement : MonoBehaviour
     Transform myTrans, tagGround;
     Rigidbody2D myBody;
     BoxCollider2D myCollider;
+    public Transform lastCheckpoint;
 
     bool willJump = false;
     bool isGrounded = false;
@@ -86,7 +87,7 @@ public class Movement : MonoBehaviour
 
     public void Respawn()
     {
-        transform.position = CheckpointManager.instance.GetRespawnPos(transform.position);
+        transform.position = lastCheckpoint.transform.position;
     }
 
 }
