@@ -21,9 +21,11 @@ public class ChangeWorld : MonoBehaviour
         _planetSurface.ApplyPositions();
         _planetSurface.ApplyToCollider();
 
-        _insidePlanet.PointRoot = _points.NewPointRoot;
-        _insidePlanet.GenerateMesh();
-        
+        if(_insidePlanet)
+        {
+            _insidePlanet.PointRoot = _points.NewPointRoot;
+            _insidePlanet.GenerateMesh();
+        }        
 
     }
 
