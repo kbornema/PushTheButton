@@ -114,6 +114,12 @@ public class LineSurface : MonoBehaviour
 
         if(c.a <= 0.0f && gameObject.activeSelf)
             gameObject.SetActive(false);
+
+        else
+        {
+            ApplyPositions();
+            ApplyToCollider();
+        }
     }
 
     public void SetColor(Color c)

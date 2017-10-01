@@ -6,6 +6,8 @@ public class DecayTrigger : Triggerable
 {
     [SerializeField]
     private float _changeTime;
+    [SerializeField]
+    private float _triggerCooldown = 2.0f;
 
     [Header("Background")]
     [SerializeField]
@@ -33,9 +35,24 @@ public class DecayTrigger : Triggerable
     [SerializeField]
     private bool _toDry;
 
+    [Header("WorldChange")]
+    [SerializeField]
+    private ChangeWorld _firstChange;
+    [SerializeField]
+    private ChangeWorld _secondChange;
+
+    [Header("Other")]
+    [SerializeField]
+    private List<Bla> _objectsToActivate;
+
+
     private Color _hideColor = new Color(1.0f, 1.0f, 1.0f, 0.0f);
 
     private int _triggerCount;
+
+
+    private float _curTriggerCooldown;
+    private bool CanTrigger { get { return _curTriggerCooldown <= 0.0f; } }
 
     private void Start()
     {
@@ -47,28 +64,56 @@ public class DecayTrigger : Triggerable
 
     }
 
+    private void Update()
+    {
+        if(!CanTrigger)
+            _curTriggerCooldown -= Time.deltaTime;
+
+        if (Input.GetKeyDown(KeyCode.L))
+            Trigger();
+    }
+
     public override void Trigger()
     {
-        
-        if(_triggerCount == 0)
-            _cloudGenerator.ColorClouds(_cloudColor, _changeTime);
+        if (CanTrigger)
+        {
+            _curTriggerCooldown = _triggerCooldown;
 
-        else if(_triggerCount == 1)
-            _trees.ChangeTrees(_changeTime, _toDry);
+            if (_triggerCount == 0)
+                _trees.ChangeTrees(_changeTime, _toDry);
 
-        else if (_triggerCount == 2 &&_camBackground != _cam.backgroundColor)
-            StartCoroutine(ColorCam(_changeTime, _camBackground));
-            
-        else if (_triggerCount == 3 && !_otherSurface.gameObject.activeSelf)
-            FadeBetweenSurfaces(_hideColor, Color.white, _changeTime);
+            else if (_triggerCount == 1)
+            {
+                _cloudGenerator.ColorClouds(_cloudColor, _changeTime);
+                _firstChange.Apply();
+            }
 
-        _triggerCount++;
+            else if (_triggerCount == 2){
+                FadeBetweenSurfaces(_hideColor, Color.white, _changeTime);
+                
+            }
+
+            else if (_triggerCount == 3)
+                StartCoroutine(ColorCam(_changeTime, _camBackground));
+
+            else if (_triggerCount == 4)
+            {
+                //_objectToHide.SetActive(false);
+                //_changeWorld.Apply();
+            }
+
+            for (int i = 0; i < _objectsToActivate.Count; i++)
+            {
+                if(_objectsToActivate[i].triggerId == _triggerCount)
+                    _objectsToActivate[i].obj.SetActive(_objectsToActivate[i].value);
+            }
+
+            _triggerCount++;
+        }
     }
 
     private IEnumerator ColorCam(float time, Color color)
-    {
-        
-
+    {   
         float curTime = 0.0f;
         Color startColor = _cam.backgroundColor;
 
@@ -90,5 +135,16 @@ public class DecayTrigger : Triggerable
     {
         _defaultSurface.StartFadeColor(a, time);
         _otherSurface.StartFadeColor(b, time);
+
+
+    }
+
+
+    [System.Serializable]
+    public class Bla
+    {
+        public GameObject obj;
+        public int triggerId;
+        public bool value;
     }
 }
