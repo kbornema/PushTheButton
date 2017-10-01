@@ -2,7 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CloudBehavior : MonoBehaviour {
+public class CloudBehavior : MonoBehaviour 
+{
+
+    [SerializeField]
+    private SpriteRenderer _spriteRenderer;
+    public SpriteRenderer TheSpriteRenderer { get { return _spriteRenderer; } }
 
     [SerializeField]
     private Transform _planetCenter;
@@ -23,6 +28,8 @@ public class CloudBehavior : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
     {
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+
         var normal = transform.position - _planetCenter.position;
         float angle = Mathf.Atan2(normal.y, normal.x) * Mathf.Rad2Deg;
         transform.localRotation = Quaternion.Euler(0.0f, 0.0f, angle - 90.0f);
