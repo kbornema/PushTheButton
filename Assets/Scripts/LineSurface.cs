@@ -19,6 +19,7 @@ public class LineSurface : MonoBehaviour
 
     [SerializeField]
     private Transform _pointRoot;
+    public Transform PointRoot { get { return _pointRoot; } set { _pointRoot = value; } }
 
     private int _count = 0;
 
