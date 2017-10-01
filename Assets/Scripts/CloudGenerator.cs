@@ -35,7 +35,7 @@ public class CloudGenerator : Triggerable
 
             dir = dir * Random.Range(_radiusMin, _radiusMax);
 
-            instance.transform.position = dir;
+            instance.transform.position = new Vector2(transform.position.x, transform.position.y) + dir;
 
             var cloud = instance.GetComponent<CloudBehavior>();
             _allClouds.Add(cloud);
