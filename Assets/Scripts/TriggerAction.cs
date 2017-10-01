@@ -1,8 +1,9 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TriggerAction : Triggerable {
+public class TriggerAction : Triggerable 
+{
 
     public AnimationCurve animCurve;
     public Vector3 offset;

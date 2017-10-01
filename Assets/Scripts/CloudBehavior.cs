@@ -45,4 +45,9 @@ public class CloudBehavior : MonoBehaviour {
     {
 		transform.RotateAround(_planetCenter.position, new Vector3(0.0f, 0.0f, 1.0f), _speed * Time.deltaTime);
 	}
+
+    public void SetCenter(Transform t)
+    {
+        _planetCenter = t;
+    }
 }
