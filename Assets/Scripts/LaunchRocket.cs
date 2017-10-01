@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -50,6 +50,14 @@ public class LaunchRocket : MonoBehaviour {
         }
     }
 
+
+    void Update()
+    {
+        if(Input.GetKey(KeyCode.F1))
+        {
+            Application.LoadLevel("default Kai");
+        }
+    }
 
 
  void OnGUI()
