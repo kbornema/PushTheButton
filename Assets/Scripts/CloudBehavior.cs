@@ -12,6 +12,12 @@ public class CloudBehavior : MonoBehaviour {
     [SerializeField]
     private float _maxSpeed;
 
+    [SerializeField]
+    private Vector3 _minScale = new Vector3(0.5f, 0.5f, 0.5f);
+
+    [SerializeField]
+    private Vector3 _maxScale = new Vector3(1.5f, 1.5f, 1.5f);
+
     private float _speed;
 
 	// Use this for initialization
@@ -22,12 +28,21 @@ public class CloudBehavior : MonoBehaviour {
         transform.localRotation = Quaternion.Euler(0.0f, 0.0f, angle - 90.0f);
 
         _speed = Random.Range(_minSpeed, _maxSpeed);
+
+        Vector3 scale = Vector3.Lerp(_minScale, _maxScale, Random.value);
+
+        if(Random.value < 0.5f)
+            scale.x = -scale.x;
+
+        if (Random.value < 0.5f)
+            scale.y = -scale.y;
+
+        transform.localScale = scale;
 	}
 	
 	// Update is called once per frame
 	void Update () 
     {
-        
 		transform.RotateAround(_planetCenter.position, new Vector3(0.0f, 0.0f, 1.0f), _speed * Time.deltaTime);
 	}
 }

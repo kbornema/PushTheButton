@@ -17,12 +17,8 @@ public class Movement : MonoBehaviour
     bool isGrounded = false;
     float hInput = 0;
 
-    private Vector2 _lastCheckpointPos;
-
     void Start()
-    {
-        _lastCheckpointPos = transform.position;
-
+    {   
         //  myBody = this.rigidbody2D;//Unity 4.6-
         myBody = this.GetComponent<Rigidbody2D>();//Unity 5+
         myCollider = this.GetComponent<BoxCollider2D>();
@@ -90,11 +86,7 @@ public class Movement : MonoBehaviour
 
     public void Respawn()
     {
-        transform.position = _lastCheckpointPos;
+        transform.position = CheckpointManager.instance.GetRespawnPos(transform.position);
     }
 
-    public void SetCheckpointPos(Vector3 vector3)
-    {
-        _lastCheckpointPos = vector3;
-    }
 }
